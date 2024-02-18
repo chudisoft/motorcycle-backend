@@ -1,13 +1,13 @@
 class Api::V1::MotorcyclesController < ApplicationController
   before_action :authorize_request
-  before_action :set_motorcycle, only: [:show, :destroy]
+  before_action :set_motorcycle, only: %i[show destroy]
 
   def index
     motorcycles = Motorcycle.all
     if motorcycles.empty?
-      render json: { message: "No motorcycles found", motorcycles: motorcycles }
+      render json: { message: 'No motorcycles found', motorcycles: }
     else
-      render json: { message: "Motorcycles found", motorcycles: motorcycles }
+      render json: { message: 'Motorcycles found', motorcycles: }
     end
   end
 

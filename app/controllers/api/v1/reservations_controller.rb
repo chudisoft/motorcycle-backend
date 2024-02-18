@@ -8,7 +8,7 @@ class Api::V1::ReservationsController < ApplicationController
   def show
     @reservation = @current_user.reservations.find(params[:id])
     render json: { success: true, data: @reservation }
-    rescue ActiveRecord::RecordNotFound
+  rescue ActiveRecord::RecordNotFound
     render json: { error: true, message: 'Reservation not found' }, status: :not_found
   end
 

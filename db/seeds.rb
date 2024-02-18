@@ -7,3 +7,19 @@
 #   ["Action", "Comedy", "Drama", "Horror"].each do |genre_name|
 #     MovieGenre.find_or_create_by!(name: genre_name)
 #   end
+
+Motorcycle.destroy_all
+
+# Add 5 different greetings
+motorcycles = [
+  'M1',
+  'M2',
+  'M3',
+  'M4',
+]
+
+motorcycles.each do |m|
+  Motorcycle.create(motorcycle_name: m)
+end
+
+puts 'Seeding completed successfully!'

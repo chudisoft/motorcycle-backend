@@ -10,29 +10,34 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_02_18_083736) do
+ActiveRecord::Schema[7.1].define(version: 2024_02_16_062901) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "motorcycles", force: :cascade do |t|
-    t.string "motorcycle_name"
+    t.string "name"
     t.string "description"
     t.string "color"
     t.string "image"
+    t.string "license_plate"
+    t.boolean "available", default: true
     t.decimal "price", precision: 8, scale: 2
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.bigint "user_id", null: false
     t.index ["color"], name: "index_motorcycles_on_color"
-    t.index ["motorcycle_name"], name: "index_motorcycles_on_motorcycle_name"
+    t.index ["name"], name: "index_motorcycles_on_name"
+    t.index ["user_id"], name: "index_motorcycles_on_user_id"
   end
 
   create_table "reservations", force: :cascade do |t|
     t.string "city"
     t.bigint "motorcycle_id", null: false
     t.bigint "user_id", null: false
+    t.time "reserve_time"
+    t.date "reserve_date"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.date "date"
     t.index ["motorcycle_id"], name: "index_reservations_on_motorcycle_id"
     t.index ["user_id"], name: "index_reservations_on_user_id"
   end
@@ -49,13 +54,16 @@ ActiveRecord::Schema[7.1].define(version: 2024_02_18_083736) do
     t.datetime "confirmed_at"
     t.datetime "confirmation_sent_at"
     t.string "unconfirmed_email"
+    t.string "jti", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["confirmation_token"], name: "index_users_on_confirmation_token", unique: true
     t.index ["email"], name: "index_users_on_email", unique: true
+    t.index ["jti"], name: "index_users_on_jti", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "motorcycles", "users"
   add_foreign_key "reservations", "motorcycles"
   add_foreign_key "reservations", "users"
 end

@@ -65,9 +65,15 @@ group :test do
   # Use system testing [https://guides.rubyonrails.org/testing.html#system-testing]
   gem 'capybara'
   gem 'selenium-webdriver'
+  gem 'rspec-core'
+  gem 'rspec-rails'
 end
+
 gem 'cancancan'
 gem 'devise'
-gem 'jwt'
-gem 'letter_opener'
-gem 'rack-cors'
+gem 'devise-jwt'
+gem 'jsonapi-serializer'
+gem 'rswag'
+gem 'rswag-api'
+gem 'rswag-ui'
+gem 'rswag-specs'

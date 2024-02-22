@@ -1,6 +1,5 @@
 class Api::V1::MotorcyclesController < ApplicationController
-  before_action :authenticate_user!
-  before_action :check_admin, only: %i[create destroy motorcycles_available update_availability]
+  before_action :authorize_request
   before_action :set_motorcycle, only: %i[show destroy]
 
 
@@ -35,7 +34,8 @@ class Api::V1::MotorcyclesController < ApplicationController
   def create
     @motorcycle = Motorcycle.new(motorcycle_params)
     if @motorcycle.save
-      render json: { success: true, message: 'Motorcycle was created successfully', motorcycle: @motorcycle }, status: :created
+      render json: { success: true, message: 'Motorcycle was created successfully', motorcycle: @motorcycle },
+             status: :created
     else
       render json: { errors: @motorcycle.errors.full_messages }, status: :unprocessable_entity
     end
@@ -52,7 +52,7 @@ class Api::V1::MotorcyclesController < ApplicationController
   private
 
   def motorcycle_params
-    params.require(:motorcycle).permit(:make, :model, :year, :color, :license_plate, :image)
+    params.require(:motorcycle).permit(:make, :model, :year, :color, :license_plate, :image, :price)
   end
 
   def set_motorcycle

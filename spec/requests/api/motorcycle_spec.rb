@@ -12,11 +12,11 @@ RSpec.describe Api::V1::MotorcyclesController, type: :controller do
         sign_in admin_user
 
         Motorcycle.create(name: 'Motorcycle 1', description: 'Fast motorcycle', price: 10.99, user: admin_user,
-                    available: true, image: 'image.jpg')
+                          available: true, image: 'image.jpg')
         Motorcycle.create(name: 'Motorcycle 2', description: 'Another fast motorcycle', price: 12.99, user: admin_user,
-                    available: true, image: 'image.jpg')
+                          available: true, image: 'image.jpg')
         Motorcycle.create(name: 'Motorcycle 3', description: 'Yummy byke', price: 8.99, user: admin_user, available: true,
-                    image: 'image.jpg')
+                          image: 'image.jpg')
 
         get :index
         motorcycles_response = JSON.parse(response.body)
@@ -34,9 +34,9 @@ RSpec.describe Api::V1::MotorcyclesController, type: :controller do
 
         # Create available motorcycles for normal user
         Motorcycle.create(name: 'Motorcycle 1', description: 'Fast motorcycle', price: 10.99, user: admin_user,
-                    available: true, image: 'image.png')
+                          available: true, image: 'image.png')
         Motorcycle.create(name: 'Motorcycle 2', description: 'Another fast motorcycle', price: 12.99, user: admin_user,
-                    available: true, image: 'image.png')
+                          available: true, image: 'image.png')
 
         get :index
         motorcycles_response = JSON.parse(response.body)

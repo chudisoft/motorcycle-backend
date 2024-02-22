@@ -9,7 +9,6 @@ class CreateMotorcycles < ActiveRecord::Migration[7.1]
       t.boolean :available, default: true
       t.decimal :price, precision: 8, scale: 2
       t.timestamps
-      t.references :user, null: false, foreign_key: true
     end
 
     add_index :motorcycles, :name

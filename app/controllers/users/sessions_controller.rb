@@ -3,7 +3,7 @@ class Users::SessionsController < Devise::SessionsController
 
   private
 
-  def respond_with(resource, _opts = {})
+  def respond_with(_resource, _opts = {})
     user = User.find_by(email: params[:user][:email])
 
     if user&.valid_password?(params[:user][:password])

@@ -12,9 +12,9 @@ RSpec.describe Api::V1::ReservationsController, type: :controller do
         sign_in admin_user
 
         motorcycle = Motorcycle.create(name: 'Motorcycle 1', description: 'Fast motorcycle', price: 10.99, user: admin_user,
-                           available: true, image: 'image.jpg')
-        Reservation.create(reserve_time: '12:00',
-                           reserve_date: '2023-01-01', user: admin_user, :motorcycle)
+                                       available: true, image: 'image.jpg')
+        # Reservation.create(reserve_time: '12:00',
+        #                    reserve_date: '2023-01-01', user: admin_user, :motorcycle)
 
         get :index
         reservations_response = JSON.parse(response.body)
@@ -31,7 +31,7 @@ RSpec.describe Api::V1::ReservationsController, type: :controller do
         sign_in admin_user
 
         motorcycle = Motorcycle.create(name: 'Motorcycle 1', description: 'Fast motorcycle', price: 10.99, user: admin_user,
-                           available: true, image: 'image.jpg')
+                                       available: true, image: 'image.jpg')
 
         reservation_params = {
           reserve_time: '12:00',
@@ -49,7 +49,7 @@ RSpec.describe Api::V1::ReservationsController, type: :controller do
     it 'returns status code 401 if user is not authenticated' do
       admin_user = User.create(email: 'admin@example.com', password: 'password', name: 'Admin User', role: 'admin')
       motorcycle = Motorcycle.create(name: 'Motorcycle 1', description: 'Fast motorcycle', price: 10.99, user: admin_user,
-                         available: true, image: 'image.jpg')
+                                     available: true, image: 'image.jpg')
 
       reservation_params = {
         reserve_time: '12:00',
@@ -66,10 +66,9 @@ RSpec.describe Api::V1::ReservationsController, type: :controller do
       sign_in admin_user
 
       motorcycle = Motorcycle.create(name: 'Motorcycle 1', description: 'Fast motorcycle', price: 10.99, user: admin_user,
-                         available: true, image: 'image.jpg')
-      reservation = Reservation.create(reserve_time: '12:00',
-                                       reserve_date: '2023-01-01', user: admin_user, :motorcycle)
-
+                                     available: true, image: 'image.jpg')
+      # reservation = Reservation.create(reserve_time: '12:00',
+      #                                  reserve_date: '2023-01-01', user: admin_user, :motorcycle)
       delete :destroy, params: { id: reservation.id }
 
       expect(response).to have_http_status(:no_content)

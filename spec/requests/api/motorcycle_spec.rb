@@ -11,11 +11,14 @@ RSpec.describe Api::V1::MotorcyclesController, type: :controller do
         admin_user = User.create(email: 'admin@example.com', password: 'password', name: 'Admin User', role: 'admin')
         sign_in admin_user
 
-        Motorcycle.create(name: 'Motorcycle 1', description: 'Fast motorcycle', price: 10.99, user: admin_user,
+        Motorcycle.create(name: 'Motorcycle 1', description: 'Fast motorcycle',
+                          price: 10.99, user: admin_user,
                           available: true, image: 'image.jpg')
-        Motorcycle.create(name: 'Motorcycle 2', description: 'Another fast motorcycle', price: 12.99, user: admin_user,
+        Motorcycle.create(name: 'Motorcycle 2', description: 'Another fast motorcycle',
+                          price: 12.99, user: admin_user,
                           available: true, image: 'image.jpg')
-        Motorcycle.create(name: 'Motorcycle 3', description: 'Yummy byke', price: 8.99, user: admin_user, available: true,
+        Motorcycle.create(name: 'Motorcycle 3', description: 'Yummy byke', price: 8.99,
+                          user: admin_user, available: true,
                           image: 'image.jpg')
 
         get :index

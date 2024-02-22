@@ -13,7 +13,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
       user = User.find_by(email: params[:user][:email])
 
       if user
-        token = user.generate_jwt
+        user.generate_jwt
         render json: {
           token: user.generate_jwt,
           status: { code: 200, message: 'Signed up sucessfully.' },

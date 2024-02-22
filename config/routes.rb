@@ -1,10 +1,6 @@
 Rails.application.routes.draw do
   mount Rswag::Ui::Engine => '/api-docs'
   mount Rswag::Api::Engine => '/api-docs'
-
-  get "user_profile", to: "members#index"
-  get "motorcycles_available", to: "api/v1/motorcycles#motorcycles_available"
-
   namespace :api do
     namespace :v1 do
       devise_for :users, path: '', path_names: {
@@ -16,6 +12,10 @@ Rails.application.routes.draw do
         sessions: 'users/sessions',
         registrations: 'users/registrations'
       }
+
+      get "user_profile", to: "members#index"
+      get "motorcycles_available", to: "api/v1/motorcycles#motorcycles_available"
+
       resources :motorcycles do
         resources :reservations, only: [:create]
         member do

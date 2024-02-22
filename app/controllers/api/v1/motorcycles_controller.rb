@@ -2,7 +2,6 @@ class Api::V1::MotorcyclesController < ApplicationController
   before_action :authorize_request
   before_action :set_motorcycle, only: %i[show destroy]
 
-
   def index
     motorcycles = Motorcycle.all
     if motorcycles.empty?

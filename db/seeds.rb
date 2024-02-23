@@ -8,17 +8,24 @@
 #     MovieGenre.find_or_create_by!(name: genre_name)
 #   end
 
-Motorcycle.destroy_all
+User.destroy_all
+
+# Create an Admin User
+User.create!(
+  name: "Admin User",
+  email: "admin@domain.com",
+  password: "Admin.1234",
+  role: "admin"
+)
+
+# Create a Regular User
+User.create!(
+  name: "Regular User",
+  email: "user@domain.com",
+  password: "User.1234",
+  role: "user"
+)
 
 # Add 5 different greetings
-motorcycles = [
-  'M1',
-  'M2',
-  'M3',
-]
-
-motorcycles.each do |m|
-  Motorcycle.create(motorcycle_name: m)
-end
 
 puts 'Seeding completed successfully!'

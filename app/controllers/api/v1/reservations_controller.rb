@@ -12,6 +12,15 @@ class Api::V1::ReservationsController < ApplicationController
     render json: { error: true, message: 'Reservation not found' }, status: :not_found
   end
 
+  def destroy
+    @reservation = @current_user.reservations.find(params[:id])
+    if @reservation.destroy
+      render json: { success: true, message: 'Reservation was deleted ' }
+    else
+      render json: 'Reservation could not be deleted'
+    end
+  end
+
   def create
     @reservation = @current_user.reservations.build(reservation_params)
     if @reservation.save
@@ -24,6 +33,6 @@ class Api::V1::ReservationsController < ApplicationController
   private
 
   def reservation_params
-    params.require(:reservation).permit(:date, :city, :motorcycle_id)
+    params.require(:reservation).permit(:reserve_date, :city, :motorcycle_id, :reserve_time)
   end
 end

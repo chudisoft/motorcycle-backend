@@ -5,11 +5,9 @@ class ApplicationController < ActionController::API
 
     begin
       @decoded = JWT.decode(header, Rails.application.secret_key_base)[0]
-      @current_user = User.find(@decoded['user_id'])
+      @current_user = User.find(@decoded['id'])
     rescue JWT::DecodeError
       head :unauthorized
     end
   end
-
-  attr_reader :current_user
 end

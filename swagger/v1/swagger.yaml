@@ -1,15 +1,18 @@
 ---
 openapi: 3.0.1
 info:
-  title: API V1
+  title: Motorcyle booking API
   version: v1
+security:
+  - bearerAuth: []
 paths:
-  "/signup":
+  "/api/v1/users":
     post:
-      summary: user created
-      parameters: []
+      summary: create user
       responses:
-        '422':
+        "201":
+          description: user created
+        "422":
           description: unprocessable entity
       requestBody:
         content:
@@ -17,18 +20,157 @@ paths:
             schema:
               type: object
               properties:
-                email:
+                user:
+                  type: object
+                  properties:
+                    username:
+                      type: string
+                    password:
+                      type: string
+                  required:
+                    - username
+                    - email
+                    - password
+
+  "/api/v1/login":
+    post:
+      summary: login authentication
+      responses:
+        "200":
+          description: successful
+        "401":
+          description: unauthorized
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                username:
                   type: string
                 password:
                   type: string
-                name:
+              required:
+                - email
+                - password
+
+  "/api/v1/motorcycles":
+    get:
+      summary: list motorcycles
+      responses:
+        "200":
+          description: successful
+    post:
+      summary: create motorcycle
+      responses:
+        "200":
+          description: successful
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                make:
+                  type: string
+                model:
+                  type: string
+                year:
+                  type: string
+                color:
+                  type: string
+                license_plate:
+                  type: string
+                image:
+                  type: string
+                price:
+                  type: integer
+              required:
+                - make
+                - model
+                - year
+                - color
+                - license_plate
+                - image
+                - price
+  "/api/v1/motorcycles/{id}":
+    parameters:
+      - name: id
+        in: path
+        description: id
+        required: true
+        schema:
+          type: string
+    get:
+      summary: show motorcycle
+      responses:
+        "200":
+          description: successful
+    delete:
+      summary: delete motorcycle
+      responses:
+        "200":
+          description: successful
+  "/api/v1/reservation":
+    get:
+      summary: list reservations
+      responses:
+        "200":
+          description: successful
+    post:
+      summary: create reservation
+      responses:
+        "200":
+          description: successful
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                motorcycle_id:
+                  type: integer
+                reserve_date:
+                  type: string
+                  format: date-time
+                reserve_time:
+                  type: string
+                  format: date-time
+                city:
                   type: string
               required:
-              - email
-              - password
-              - name
+                - motorcycle_id
+                - reserve_time
+                - reserve_date
+                - city
+  "/api/v1/reservations/{id}":
+    parameters:
+      - name: id
+        in: path
+        description: id
+        required: true
+        schema:
+          type: string
+    get:
+      summary: show reservation
+      responses:
+        "200":
+          description: successful
+    delete:
+      summary: delete reservation
+      responses:
+        "200":
+          description: successful
+
 servers:
-- url: https://{defaultHost}
-  variables:
-    defaultHost:
-      default: www.example.com
+  - url: https://{defaultHost}
+    variables:
+      defaultHost:
+        default:
+
+components:
+  securitySchemes:
+    bearerAuth:
+      type: http
+      scheme: bearer
+      bearerFormat: JWT

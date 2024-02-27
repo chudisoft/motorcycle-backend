@@ -4,7 +4,8 @@ class Api::V1::UsersController < ApplicationController
 
     if @user.save
       token = @user.generate_jwt
-      render json: { user_id: @user.id, name: @user.name, token: }, status: :created
+      render json: { user_id: @user.id, name: @user.name, message: 'User created successfully', token: },
+             status: :created
     else
       render json: { errors: @user.errors.full_messages }, status: :unprocessable_entity
     end

@@ -10,7 +10,6 @@
     - [Key Features](#key-features)
   - [Kanban Board](#kanban-board)
   - [Frontend Repository](#rails-frontend)
-  - [🚀 Live Demo](#live-demo)
 - [💻 Getting Started](#getting-started)
   - [Setup](#setup)
   - [Prerequisites](#prerequisites)
@@ -65,6 +64,7 @@
 Our team of four used a special Kanban board to split up tasks and see how things were going. It helped us stay organized and keep track of our progress.
 
 - [Kanban Board](https://github.com/users/ishimwepati/projects/10/views/2)
+- [Initial state of your Kanban board](https://github.com/ishimwepati/Final-group-capstone---Book-an-Appointment/issues/10)
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -79,12 +79,6 @@ Our team of four used a special Kanban board to split up tasks and see how thing
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 <!-- LIVE DEMO -->
-
-## 🚀 Live Demo <a name="live-demo"></a>
-
-- [Live Demo Link]()
-
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 <!-- Getting started -->
 

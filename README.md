@@ -1,4 +1,5 @@
 <a name="readme-top"></a>
+![Screenshot 2024-03-01 at 14-02-12 Swagger UI](https://github.com/chudisoft/motorcycle-backend/assets/119929069/d5104ee2-0b3f-4c4d-b966-976554f4f44f)
 
 <!-- TABLE OF CONTENTS -->
 

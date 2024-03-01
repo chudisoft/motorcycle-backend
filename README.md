@@ -25,9 +25,9 @@
 
 <!-- PROJECT DESCRIPTION -->
 
-# 📖 SwiftBike Reserves <a name="about-project"></a>
+# 📖 Bike Reserves <a name="about-project"></a>
 
-**SwiftBike Reserves** is an app for booking motorcycles. You can sign up and add your own motorcycles to the app. Once you're signed up, you can reserve motorcycles for specific dates and cities. This app is made using React and Rails, making it easy to use. It's a handy tool for people who want to book motorcycles.
+**Bike Reserves** is an app for booking motorcycles. You can sign up and add your own motorcycles to the app. Once you're signed up, you can reserve motorcycles for specific dates and cities. This app is made using React and Rails, making it easy to use. It's a handy tool for people who want to book motorcycles.
 
 ## 🛠 Built With <a name="built-with"></a>
 
@@ -74,7 +74,7 @@ Our team of four used a special Kanban board to split up tasks and see how thing
 
 <a name="rails-frontend"></a>
 
-- [SwiftBike Reserves Frontend](https://github.com/ishimwepati/Final-group-capstone---Book-an-Appointment)
+- [Bike Reserves Frontend](https://github.com/ishimwepati/Final-group-capstone---Book-an-Appointment)
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 

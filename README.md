@@ -146,7 +146,7 @@ rails server
 👤 **Christopher Uduekwe**
 
 - GitHub: [@githubhandle](https://github.com/chudisoft)
-- LinkedIn: [LinkedIn](https://www.linkedin.com/in/christopher-uduekwe/)
+- LinkedIn: [LinkedIn](https://www.linkedin.com/in/chudisoft/)
 
 👤 **May Pyone**
 

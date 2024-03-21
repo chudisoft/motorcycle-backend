@@ -75,7 +75,7 @@ Our team of four used a special Kanban board to split up tasks and see how thing
 
 <a name="rails-frontend"></a>
 
-- [Bike Reserves Frontend](https://github.com/ishimwepati/Final-group-capstone---Book-an-Appointment)
+- [Bike Reserves Frontend](https://github.com/chudisoft/Book-an-Appointment)
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
